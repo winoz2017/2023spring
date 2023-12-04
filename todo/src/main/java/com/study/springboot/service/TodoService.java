@@ -24,7 +24,7 @@ public class TodoService {
 		return saveEntity.getTitle();
 	}
 	
-	private List<TodoEntity> create(final TodoEntity entity) {
+	public List<TodoEntity> create(final TodoEntity entity) {
 		validate(entity);
 		todoRepository.save(entity);
 		log.info("entity id : {} is saved.", entity.getId());
