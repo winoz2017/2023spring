@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -22,6 +23,7 @@ public class MycommentApiController {
 	private MycommentService mycommentService;
 	
 	@GetMapping("/api/articles/{articleId}/comments")
+	@CrossOrigin
 	public ResponseEntity<List<MycommentDto>> mycomments(@PathVariable Long articleId){
 		//서비스위임
 		List<MycommentDto> dtos = mycommentService.mycomments(articleId);
@@ -36,6 +38,7 @@ public class MycommentApiController {
 	}
 	
 	@PostMapping("/api/articles/{articleId}/comments")
+	@CrossOrigin
 	public ResponseEntity<MycommentDto> create(
 			@PathVariable Long articleId,
 			@RequestBody MycommentDto dto){
@@ -47,6 +50,7 @@ public class MycommentApiController {
 	}
 	
 	@PatchMapping("/api/comments/{id}")
+	@CrossOrigin
 	public ResponseEntity<MycommentDto> update(
 			@PathVariable Long id,
 			@RequestBody MycommentDto dto
@@ -59,6 +63,7 @@ public class MycommentApiController {
 	}
 			
 	@DeleteMapping("/api/comments/{id}")
+	@CrossOrigin
 	public ResponseEntity<MycommentDto> delete(@PathVariable Long id){
 		
 		//서비스에게 위임

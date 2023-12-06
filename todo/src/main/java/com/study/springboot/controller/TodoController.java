@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.study.springboot.dto.ResponseDTO;
 import com.study.springboot.dto.TodoDTO;
@@ -19,6 +20,7 @@ import com.study.springboot.entity.TodoEntity;
 import com.study.springboot.service.TodoService;
 
 @Controller
+@RequestMapping("todo")
 public class TodoController {
 	@Autowired
 	private TodoService service;
