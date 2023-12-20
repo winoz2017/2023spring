@@ -10,7 +10,6 @@ import com.study.springboot.api.request.JoinRequestDto;
 import com.study.springboot.api.request.LoginRequestDto;
 import com.study.springboot.entity.UserEntity;
 import com.study.springboot.repository.UserRepository;
-import com.study.springboot.security.JwtProvider;
 
 import lombok.RequiredArgsConstructor;
 
@@ -20,7 +19,7 @@ public class UserService {
 
 	private final BCryptPasswordEncoder passwordEncoder;
 	private final UserRepository userRepository;
-	private final JwtProvider jwtProvider;
+//	private final JwtProvider jwtProvider;
 
 	public String join(JoinRequestDto joinRequestDto) {
 
@@ -57,12 +56,13 @@ public class UserService {
         if(passwordEncoder.matches(rawPassword, byEmail.getPassword())){
 
             // JWT 토큰 반환
-            String jwtToken = jwtProvider.generateJwtToken(
-            		byEmail.getId(), byEmail.getEmail(), byEmail.getUsername(),
-            		byEmail.getRole()
-            		);
+//            String jwtToken = jwtProvider.generateJwtToken(
+//            		byEmail.getId(), byEmail.getEmail(), byEmail.getUsername(),
+//            		byEmail.getRole()
+//            		);
 
-			return "로그인 성공 " + jwtToken;
+//			return "Bearer " + jwtToken;
+			return "Bearer 111";
         }
 
         return "로그인 실패";
